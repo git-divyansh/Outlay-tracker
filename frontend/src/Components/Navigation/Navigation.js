@@ -20,6 +20,7 @@ const Navigation = ({active, setActive}) => {
             setError('');
             navigate("/login");
         }
+    // eslint-disable-next-line
     }, [user])
 
     const handleClick = () =>{

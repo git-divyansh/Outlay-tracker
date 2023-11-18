@@ -21,6 +21,7 @@ const Login = () => {
         }
       }
       loginUser();
+    // eslint-disable-next-line
     }, [user])
 
     const handleChange = (e, name) => {

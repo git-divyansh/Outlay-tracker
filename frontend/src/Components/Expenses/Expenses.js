@@ -2,17 +2,17 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../Context/GlobalContext';
 import { InnerLayout } from '../../Styles/Layouts';
-import Form from '../Form/Form.js';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
 // import ExpenseForm from './ExpenseForm';
 
 const Expenses = () => {
-    const {addIncome,expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+    const {expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
     useEffect(() =>{
         getExpenses()
-    }, [])
+    // eslint-disable-next-line
+    }, [expenses])
   return (
     <ExpenseStyled>
     <InnerLayout>

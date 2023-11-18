@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/v1/"
+// const BASE_URL = "http://localhost:5000/api/v1/"
+const BASE_URL = "https://outlaytrackerbackend.onrender.com/api/v1/"
 
 const GlobalContext = createContext();
 

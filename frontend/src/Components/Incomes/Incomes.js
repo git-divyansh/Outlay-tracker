@@ -11,7 +11,8 @@ const Incomes = () => {
 
     useEffect(() =>{
         getIncomes()
-    }, [])
+    // eslint-disable-next-line
+    }, [incomes])
     
   return (
     <IncomeStyled>
