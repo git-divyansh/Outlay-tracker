@@ -9,7 +9,7 @@ import Cookies from "js-cookie"
 
 
 const Navigation = ({active, setActive}) => {
-    const {user, setError, setUser, username} = useGlobalContext();
+    const {user, setError, setUser, name} = useGlobalContext();
     const navigate = useNavigate();
 
     useEffect(() =>{
@@ -31,7 +31,7 @@ const Navigation = ({active, setActive}) => {
         <div className="user-con">
             <img src={avatar} alt="" />
             <div className="text">
-                <h2>{username}</h2>
+                <h2>{name}</h2>
                 <p>Your Money</p>
             </div>
         </div>

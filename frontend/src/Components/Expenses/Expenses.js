@@ -7,12 +7,12 @@ import ExpenseForm from './ExpenseForm';
 // import ExpenseForm from './ExpenseForm';
 
 const Expenses = () => {
-    const {expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
+    const {user, expenses, getExpenses, deleteExpense, totalExpenses} = useGlobalContext()
 
     useEffect(() =>{
         getExpenses()
     // eslint-disable-next-line
-    }, [expenses])
+    }, [user])
   return (
     <ExpenseStyled>
     <InnerLayout>

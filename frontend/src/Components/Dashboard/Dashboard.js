@@ -9,14 +9,14 @@ import History from '../../History/History';
 // import Chart from '../Chart/Chart';
 
 const Dashboard = () => {
-    const {totalExpenses, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
+    const {user, totalExpenses, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
 
     // Using useEffect to preload the Income and Expense 
     useEffect(() => {
         getIncomes()
         getExpenses()
     // eslint-disable-next-line
-    }, [incomes, expenses])
+    }, [user])
 
   return (
     <DashboardStyled>
