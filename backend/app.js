@@ -16,6 +16,7 @@ const corsOptions = {
         'http://localhost:3000',
         'http://127.0.0.1:3000',
         'http://127.0.0.1',
+        'https://outlay-tracker-ft.netlify.app/'
     ],
     credentials: true,
     exposedHeaders: ['set-cookie'],
