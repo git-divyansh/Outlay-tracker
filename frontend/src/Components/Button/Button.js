@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// For submit button animation
-
 function Button({name, icon, onClick, bg, bPad, color, bRad}) {
     return (
         <ButtonStyled style={{
@@ -11,8 +9,8 @@ function Button({name, icon, onClick, bg, bPad, color, bRad}) {
             borderRadius: bRad,
             color: color,
         }} onClick={onClick}>
+            {name !== 'trash' ? <span>{name}</span> : null}
             {icon}
-            {name}
         </ButtonStyled>
     )
 }
@@ -29,6 +27,9 @@ const ButtonStyled = styled.button`
     gap: .5rem;
     cursor: pointer;
     transition: all .4s ease-in-out;
+    span{
+        margin-right: auto;
+    }
 `;
 
 

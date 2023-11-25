@@ -4,6 +4,7 @@ import { useGlobalContext } from '../../Context/GlobalContext';
 import { InnerLayout } from '../../Styles/Layouts';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from './ExpenseForm';
+import {rupee} from '../../Utils/Icons.js'
 // import ExpenseForm from './ExpenseForm';
 
 const Expenses = () => {
@@ -17,7 +18,7 @@ const Expenses = () => {
     <ExpenseStyled>
     <InnerLayout>
         <h1>Expenses</h1>
-        <h2 className="total-income">Total Expense: <span>${totalExpenses()}</span></h2>
+        <h2 className="total-income">Total Expense: <span>{rupee}{totalExpenses()}</span></h2>
         <div className="income-content">
             <div className="form-container">
                 <ExpenseForm />

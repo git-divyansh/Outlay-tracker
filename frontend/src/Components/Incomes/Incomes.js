@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { useGlobalContext } from '../../Context/GlobalContext';
 import { InnerLayout } from '../../Styles/Layouts';
 import Form from '../Form/Form.js';
+import {rupee} from '../../Utils/Icons.js'
 import IncomeItem from '../IncomeItem/IncomeItem';
 
 
 const Incomes = () => {
-    const {incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
+    const {user, incomes, getIncomes, deleteIncome, totalIncome} = useGlobalContext()
 
     useEffect(() =>{
         getIncomes()
@@ -18,7 +19,7 @@ const Incomes = () => {
     <IncomeStyled>
         <InnerLayout>
             <h1>Incomes</h1>
-            <h2 className="total-income">Total Income: <span>${totalIncome()}</span></h2>
+            <h2 className="total-income">Total Income: <span>{rupee}{totalIncome()}</span></h2>
             <div className="income-content">
                 <div className="form-container">
                     <Form />

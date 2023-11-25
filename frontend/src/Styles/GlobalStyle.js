@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     :root{
-        --primary-color: #222260;
+        --primary-color: rgba(0, 0, 0, 0.6);
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
         --color-green: #42AD00;
@@ -18,7 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family: Anton, sans-serif;
-        /* background-color: red; */
         font-size: clamp(1rem, 1.5vw, 1.2rem);
         overflow: hidden;
         color: rgba(34, 34, 96, .6);

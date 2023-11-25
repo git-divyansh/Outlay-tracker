@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../Context/GlobalContext'
-// import History from '../../History/History';
 import { InnerLayout } from '../../Styles/Layouts';
-import { dollar } from '../../Utils/Icons';
+import { rupee } from '../../Utils/Icons';
 import Chart from '../Chart/Chart';
 import History from '../../History/History';
-// import Chart from '../Chart/Chart';
 
 const Dashboard = () => {
     const {user, totalExpenses, incomes, expenses, totalIncome, totalBalance, getIncomes, getExpenses } = useGlobalContext()
@@ -29,19 +27,19 @@ const Dashboard = () => {
                         <div className="income">
                             <h2>Total Income</h2>
                             <p>
-                                {dollar} {totalIncome()}            
+                                {rupee} {totalIncome()}            
                             </p>
                         </div>
                         <div className="expense">
                             <h2>Total Expense</h2>
                             <p>
-                                {dollar} {totalExpenses()}         
+                                {rupee} {totalExpenses()}         
                             </p>
                         </div>
                         <div className="balance">
                             <h2>Total Balance</h2>
                             <p>
-                                {dollar} {totalBalance()}          
+                                {rupee} {totalBalance()}          
                             </p>
                         </div>
                     </div>
@@ -52,19 +50,19 @@ const Dashboard = () => {
          
                     <div className="salary-item">
                         <p>
-                            ${incomes.length ? Math.min(...incomes.map(item => (item.amount ? item.amount : 0))) : 0}                
+                            {rupee}{incomes.length ? Math.min(...incomes.map(item => (item.amount ? item.amount : 0))) : 0}                
                         </p>
                         <p>
-                            ${incomes.length ? Math.max(...incomes.map(item => (item.amount ? item.amount : 0))) : 0}              
+                            {rupee}{incomes.length ? Math.max(...incomes.map(item => (item.amount ? item.amount : 0))) : 0}              
                         </p>
                     </div>
                     <h2 className="salary-title">Min <span>Expense</span>Max</h2>
                     <div className="salary-item">
                         <p>
-                            ${expenses.length ? Math.min(...expenses.map(item => (item.amount ? item.amount : 0))) : 0}
+                            {rupee}{expenses.length ? Math.min(...expenses.map(item => (item.amount ? item.amount : 0))) : 0}
                         </p>
                         <p>
-                            ${expenses.length ? Math.max(...expenses.map(item => (item.amount ? item.amount : 0))) : 0}
+                            {rupee}{expenses.length ? Math.max(...expenses.map(item => (item.amount ? item.amount : 0))) : 0}
                         </p>
                     </div>
                 </div>

@@ -32,14 +32,13 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         getUser(inputs);
-        // console.log("--------login-------------");
     }
 
     return (
       <FormLogin>
-      {error ? <p className='error'>{error}</p> : <h2>Login!</h2>}
-        {error ? <p>{error}</p>: <legend >welcome user</legend>}
+      {error ? <p className='error'>{error}</p> : <h1>Login!</h1>}
             <Details>
+              {error ? <p>{error}</p>: <legend >Welcome user</legend>}
               <ul>
                   <li>
                   <label for="username">Username:</label>
@@ -51,7 +50,7 @@ const Login = () => {
                   </li>
                   <li>
                   <label for="password">Password:</label>
-                  <input type="password" value={inputs["passowrd"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                  <input type="password" value={inputs["password"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
                   </li>
               </ul>
             </Details>
@@ -67,30 +66,62 @@ const FormLogin = styled.form`
     justify-content: center;
     align-items: center;
     width : 100%;
-    background-color: edf6f9;
     height: 100%;
+    legend{
+      margin: 1rem;
+      font-size: 1.3rem;
+    }
+    h1{
+      margin: 5px 5px;
+    }
 `
 
 const Details = styled.div`
-  height: 10rem;
+  height: 15rem;
   width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
   border-radius: 5px;
   ul{
     display : flex;
     flex-direction: column;
     gap: 1rem
   }
+  li{
+    margin: 0.2rem;
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    label{
+      font-size: 21px;
+    }
+    input{
+      height: 2rem;
+      width: 20rem;
+      padding: 5px 5px;
+      font-size: 15px;
+      font-style: inherit;
+    }
+  }
 `
 
 const Btn = styled.button`
-margin: 5px 2px;
-  height: 30px;
-  width: 100px;
+  margin: 5px 2px;
+  height: 2.4rem;
+  width: 7rem;
+  border-radius: 4px;
+  border-width: 0px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+  input{
+    padding: 10px 10px;
+  }
 `
+
 
 export default Login

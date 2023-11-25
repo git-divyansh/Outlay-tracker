@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
-import { signout } from '../../Utils/Icons'
+import { signout} from '../../Utils/Icons'
 import { menuItems } from '../../Utils/menuItems'
 import { useGlobalContext } from '../../Context/GlobalContext'
 import { useNavigate } from 'react-router-dom'
@@ -26,6 +26,7 @@ const Navigation = ({active, setActive}) => {
     const handleClick = () =>{
         setUser(false);
     }
+
   return (
     <NavStyled>
         <div className="user-con">

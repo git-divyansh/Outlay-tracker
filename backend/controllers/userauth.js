@@ -51,13 +51,11 @@ exports.loginUser = async (req, res) =>{
         if(check && passCheck) { 
             const id = check._id.toString();
             const token = jwt.sign({id}, process.env.JWT_SECRET);
-            // console.log("jwt cookie is created");
-            // console.log(token);
             res.cookie("jwt", token, {
                 expires : new Date(Date.now() + 2589200000),
                 httpOnly : true,
                 secure : true,   
-                sameSite: 'none'
+                sameSite: 'None'
             }).json({token, check, message : "Login successful"});
         }
     }

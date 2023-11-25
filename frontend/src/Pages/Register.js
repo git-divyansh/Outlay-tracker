@@ -23,9 +23,9 @@ const Register = () => {
 
   return (
     <FormLogin onSubmit={handleSubmit}>
-        <h2>Sign Up!</h2>
-        {error ?  <p> {error} </p>: <legend>Create Account</legend>}
+        <h1>Sign Up!</h1>
             <Details>
+            {error ?  <p> {error} </p>: <legend>Create Account</legend>}
                 <ul>
                     <li>
                     <label for="username">Username:</label>
@@ -43,7 +43,7 @@ const Register = () => {
             </Details>
         <div>
             <Btn onClick={handleSubmit}>Submit</Btn>
-            <Btn style={{textDecoration : "none"}} onClick={()=>{navigate('/login')}} type="button">Have an Account?</Btn>
+            <Btn style={{textDecoration : "none"}} onClick={()=>{navigate('/login')}} type="button">Login</Btn>
         </div>
   </FormLogin>
   )
@@ -56,31 +56,61 @@ const FormLogin = styled.form`
     justify-content: center;
     align-items: center;
     width : 100%;
-    background-color: edf6f9;
     height: 100%;
+    legend{
+      margin: 1rem;
+      font-size: 1.3rem;
+    }
+    h1{
+      margin: 5px 5px;
+    }
 `
 
 const Details = styled.div`
-  height: 10rem;
+  height: 15rem;
   width: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
   border-radius: 5px;
   ul{
     display : flex;
     flex-direction: column;
     gap: 1rem
   }
+  li{
+    margin: 0.2rem;
+    gap: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    label{
+      font-size: 21px;
+    }
+    input{
+      height: 2rem;
+      width: 20rem;
+      padding: 5px 5px;
+      font-size: 15px;
+      font-style: inherit;
+    }
+  }
 `
 
 const Btn = styled.button`
-    margin: 5px 2px;
-    padding: 2px 2px;
-    height: 30px;
-    width: fit-content;
+  margin: 5px 2px;
+  height: 2.4rem;
+  width: 7rem;
+  border-radius: 4px;
+  border-width: 0px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+  input{
+    padding: 10px 10px;
+  }
 `
 
 export default Register
