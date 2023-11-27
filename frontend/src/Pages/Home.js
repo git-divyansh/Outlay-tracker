@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import Dashboard from "../Components/Dashboard/Dashboard";
 import Incomes from "../Components/Incomes/Incomes";
 import Expenses from "../Components/Expenses/Expenses";
+import Transaction from "../Components/Transaction/Transaction";
 
 const Home = () => {
     const [active, setActive] = useState(1)
@@ -15,7 +16,7 @@ const Home = () => {
         case 1:
           return <Dashboard />
         case 2:
-          return <Dashboard />
+          return <Transaction />
         case 3:
           return <Incomes />
         case 4: 

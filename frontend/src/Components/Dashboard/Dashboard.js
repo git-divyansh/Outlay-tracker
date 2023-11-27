@@ -19,7 +19,7 @@ const Dashboard = () => {
   return (
     <DashboardStyled>
         <InnerLayout>
-            <h1>All Transactions</h1>
+            <h1>Dashboard</h1>
             <div className="stats-con">
                 <div className="chart-con">
                     <Chart />
@@ -98,10 +98,12 @@ const DashboardStyled = styled.div`
                         font-size: 3.5rem;
                         font-weight: 700;
                     }
+                    width: fit-content;
                 }
 
                 .balance{
-                    grid-column: 2 / 4;
+                    width: fit-content;
+                    grid-column: 1 / 4;
                     display: flex;
                     flex-direction: column;
                     justify-content: center;

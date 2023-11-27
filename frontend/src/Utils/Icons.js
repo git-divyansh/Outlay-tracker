@@ -3,9 +3,9 @@ export const transactions = <i className="fa fa-credit-card"></i>
 export const categories = <i className="fa fa-tags"></i>
 export const accounts = <i className="fa fa-wallet"></i>
 export const settings = <i className="fa fa-cog"></i>
-export const logout = <i className="fa fa-sign-out"></i>
-export const trend = <i className="fa fa-money-bill-trend-up"></i>
-export const expenses = <i className="fa-solid fa-money-bill-transfer"></i>
+export const logout = <i className="fa-solid fa-right-from-bracket"></i>
+export const trend = <i className="fa-solid fa-money-check"></i>
+export const expenses = <i className="fa-solid fa-money-bill-1"></i>
 export const money = <i className="fa fa-money-bill"></i>
 export const freelance = <i className ="fa fa-earth-americas"></i>
 export const stocks = <i className="fa fa-arrow-trend-up"></i>

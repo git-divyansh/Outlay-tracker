@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import avatar from '../../img/avatar.png'
-import { signout} from '../../Utils/Icons'
+import { logout} from '../../Utils/Icons'
 import { menuItems } from '../../Utils/menuItems'
 import { useGlobalContext } from '../../Context/GlobalContext'
 import { useNavigate } from 'react-router-dom'
 import Cookies from "js-cookie"
+import Button from '../Button/Button'
 
 
 const Navigation = ({active, setActive}) => {
@@ -49,15 +50,13 @@ const Navigation = ({active, setActive}) => {
             })}
         </ul>
         <div className="bottom-nav">
-            <li>
-                {signout} 
-                <Btn  
-                    type = "button"
-                    onClick={handleClick}
-                >Sign Out</Btn>
-            </li>
+            <Button 
+                name={'logout'} 
+                icon={logout}    
+                background = {'white'}
+                onClick={handleClick}
+            />        
         </div>
-
     </NavStyled>
   )
 }
@@ -90,7 +89,7 @@ const NavStyled = styled.div`
             box-shadow: 0px 1px 17px rgba(0, 0, 0, 0.06);
         }
         h2{
-            color: rgba(34, 34, 96, 1);
+            color: rgba(34, 34, 96, .6);
         }
         p{
             color: rgba(34, 34, 96, .6);
@@ -109,11 +108,11 @@ const NavStyled = styled.div`
             font-weight: 500;
             cursor: pointer;
             transition: all .4s ease-in-out;
-            color: rgba(34, 34, 96, .6);
+            color: rgba(152, 148, 148, 0.6);
             padding-left: 1rem;
             position: relative;
             i{
-                color: rgba(34, 34, 96, 0.6);
+                color: rgba(152, 148, 148, 0.6);
                 font-size: 1.4rem;
                 transition: all .4s ease-in-out;
             }
@@ -121,9 +120,9 @@ const NavStyled = styled.div`
     }
 
     .active{
-        color: rgba(34, 34, 96, 1) !important;
+        color: #19194b99 !important;
         i{
-            color: rgba(34, 34, 96, 1) !important;
+            color: #19194b99 !important;
         }
         &::before{
             content: "";
@@ -136,13 +135,14 @@ const NavStyled = styled.div`
             border-radius: 0 10px 10px 0;
         }
     }
+
+    .bottom-nav{
+        margin-left: 1rem;
+        width: 2rem;
+        
+    }
 `
 
-const Btn = styled.button`
-    margin: 5px 2px;
-    height: 30px;
-    width: 100px;
-`
 
 
 export default Navigation

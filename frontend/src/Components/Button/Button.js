@@ -4,12 +4,12 @@ import styled from 'styled-components'
 function Button({name, icon, onClick, bg, bPad, color, bRad}) {
     return (
         <ButtonStyled style={{
-            background: bg,
+            background: (bg || '#fcf6f9c7'),
             padding: bPad,
             borderRadius: bRad,
             color: color,
         }} onClick={onClick}>
-            {name !== 'trash' ? <span>{name}</span> : null}
+            {name !== 'trash' && name !== 'logout' ? <span>{name}</span> : null}
             {icon}
         </ButtonStyled>
     )
