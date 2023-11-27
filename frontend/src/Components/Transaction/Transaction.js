@@ -78,6 +78,7 @@ const Transaction = () => {
       else setData(dataset);
     };
     handleData();
+    // eslint-disable-next-line
   }, [ids]);
 
   const handleClick = (id) => {
