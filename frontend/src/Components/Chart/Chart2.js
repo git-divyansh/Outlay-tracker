@@ -28,6 +28,7 @@ import {
       var income = [];
       obj.forEach((x) => {
         var a = 0;
+        // eslint-disable-next-line
         incomes.map((y) => {
           if (y.type === "income" && y.category === x.toLowerCase())
             a += y.amount;
@@ -37,6 +38,7 @@ import {
     var expense = [];
       obj2.forEach((x)=>{
         var b = 0;
+        // eslint-disable-next-line
         expenses.map(y =>{
           if (y.type === "expense" && y.category === x.toLowerCase())
             b += y.amount;
