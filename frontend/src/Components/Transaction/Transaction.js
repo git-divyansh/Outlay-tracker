@@ -94,12 +94,12 @@ const Transaction = () => {
 
   return (
     <TransactionStyled>
-      <h1>View Transactions</h1>
       <ChartStyled>
+      <h1>View Transactions</h1>
         <Chart incomes = {incomes} expenses = {expenses} obj2 = {obj2} obj = {obj}/>
       </ChartStyled>
-      <h2>Customized search...</h2>
       <TransactionInfo>
+        <h2>Customized search...</h2>
         <div className="checkbox-div">
           <ul>
           <li style={{marginBottom : "10px"}}>
@@ -146,13 +146,14 @@ const Transaction = () => {
             })}
           </ul>
         </div>
+        <h2>Transactions..</h2>
         <div className="display-data">
-          {data.map((x) => {
+          {data.length ? data.map((x) => {
             return (
               <div id="element" className="element">
                 <div className="text">
                   <p>{rupee}{x.amount}</p>
-                  <p>{x.title}</p>
+                  <p>{x.title}</p >
                   <p>{comment}{x.description}</p>
                   <p>{calender}{dateFormat(x.date)}</p>
                 </div>
@@ -163,7 +164,7 @@ const Transaction = () => {
                 />
               </div>
             );
-          })}
+          }) : <div id="element" className="element" style={{display : "flex", justifyContent : "center", color : "#c8c6c6"}}> No Transactions</div>}
         </div>
       </TransactionInfo>
     </TransactionStyled>
@@ -171,31 +172,51 @@ const Transaction = () => {
 };
 
 const TransactionStyled = styled.div`
+  background-color: #222321;
+  padding: 2rem 1.5rem;
+  display: flex;
+  /* height: 100%; */
   h1 {
-    margin: 2rem 1rem;
-    font-size: 40px;
+    padding-bottom: 20px;
+    font-size: 40px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
   h2{
         display: flex;
         justify-content: center ;
         margin-top: 4rem;
     }
+
+  @media screen and (max-width: 1574px){
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const TransactionInfo = styled.div`
-  height: 34rem;
-  margin-top: 3rem;
-  width: 100%;
+  height: 50rem;
+  width: 40rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center ;
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .checkbox-div {
-      margin: 1rem 1rem;
-      margin-top: 2rem;
+    margin: 0rem 1rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     width: 20rem;
     ul {
-      color: black;
+      color: #a7a7a7;
       gap: 1rem;
       margin: 10px 10px;
     }
@@ -206,27 +227,33 @@ const TransactionInfo = styled.div`
     label{
         margin: 5px 5px;
     }
+    @media screen and (max-width: 1574px){
+      margin: 0rem 1rem;
+    }
   }
   .display-data {
-    margin-right: auto;
-    overflow-y: scroll;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    background-color: #3a3b39;
+    padding: 10 px 25px;
     overflow-x: hidden;
-    width: 40rem;
-    height: 30rem;
+    overflow-y: scroll;
+    width: 94%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    border-radius: 10px;
     gap: 10px;
     .element {
       padding: 5px 10px;
       border-radius: 15px;
-      height: 4rem;
+      min-height: 4rem;
       width: 30rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background : #FCF6F9;
+      background : #262725;
       box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.2);
       .text {
         display: flex;
@@ -237,6 +264,7 @@ const TransactionInfo = styled.div`
           align-items: center;
           gap: 0.5rem;
           opacity: 0.8;
+          color: #c8c6c6;
         }
       }
       span {
@@ -246,29 +274,26 @@ const TransactionInfo = styled.div`
         height: 100%;
         background: #42ad00;
       }
+      @media screen and (max-width: 1024px){
+        font-size: 15px;
+        width: 27rem;
+      }
     }
-    #element::-webkit-scrollbar {
-      width: 10px;
-      background-color: #f5f5f5;
+    &::-webkit-scrollbar {
+      width: 0.5em;
     }
-    #element::-webkit-scrollbar-track {
+
+    &::-webkit-scrollbar-thumb {
+      background-color: white;
       border-radius: 10px;
-      background: rgba(0, 0, 0, 0.1);
-      border: 1px solid #ccc;
     }
-
-    #element::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: linear-gradient(left, #fff, #e4e4e4);
-      border: 1px solid #aaa;
+    @media screen and (max-width: 1024px){
+      width: 80%;
+      padding: 10px  0px;
     }
-
-    #element::-webkit-scrollbar-thumb:hover {
-      background: #fff;
-    }
-
-    #element::-webkit-scrollbar-thumb:active {
-      background: linear-gradient(left, #22add4, #1e98ba);
+    @media screen and (max-width: 1574px){
+      width: 94%;
+      padding: 10px  0px;
     }
   }
 `;

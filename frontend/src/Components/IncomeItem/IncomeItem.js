@@ -86,8 +86,8 @@ const  IncomeItem = ({
                             icon={trash}
                             bPad={'1rem'}
                             bRad={'50%'}
-                            bg={'var(--primary-color)'}
-                            color={'#fff'}
+                            bg={'#262725'}
+                            color={'#c8c6c6'}
                             iColor={'#fff'}
                             hColor={'var(--color-green)'}
                             onClick={() => deleteItem(id)}
@@ -100,8 +100,9 @@ const  IncomeItem = ({
 }
 
 const IncomeItemStyled = styled.div`
-   background: #FCF6F9;
-    border: 2px solid #FFFFFF;
+   /* background: #FCF6F9; */
+    background-color: #262725;
+    border: 1px solid #000;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 1rem;
@@ -112,16 +113,17 @@ const IncomeItemStyled = styled.div`
     width: 100%;
     color: #222260;
     .icon{
-        width: 80px;
+        width: 80px;    
         height: 80px;
         border-radius: 20px;
-        background: #F5F5F5;
+        background: #262725;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid #FFFFFF;
+        /* border: 2px solid #FFFFFF; */
         i{
             font-size: 2.6rem;
+            color: white;
         }
     }
 

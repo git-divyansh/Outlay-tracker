@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import React, {useNavigate} from 'react-router-dom';
 import { useGlobalContext } from '../Context/GlobalContext';
 import styled from 'styled-components';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Login = () => {
     const [inputs, setInputs] = useState({
@@ -9,6 +10,7 @@ const Login = () => {
       "email" : "",
       "password" : ""
     });
+    const [submitted, setSubmitted] = useState(false);
 
     const {user, error, getUser, setError} = useGlobalContext()
     const navigate = useNavigate()
@@ -17,6 +19,7 @@ const Login = () => {
       const loginUser = () =>{
         if(user){
             setError('')
+            setSubmitted(false)
             navigate('/home');
         }
       }
@@ -31,30 +34,32 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setSubmitted(true);
         getUser(inputs);
     }
 
     return (
       <FormLogin>
-      {error ? <p className='error'>{error}</p> : <h1>Login!</h1>}
+      <h1>Login!</h1>
             <Details>
               {error ? <p>{error}</p>: <legend >Welcome user</legend>}
               <ul>
                   <li>
                   <label for="username">Username:</label>
-                  <input type="text" value={inputs["username"]} id="username" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                  <input placeholder='Username' autocomplete="new-password" type="text" value={inputs["username"]} id="username" required onChange={(e)=>handleChange(e, e.target.id)}/>
                   </li>
                   <li>
                   <label for="email">Email:</label>
-                  <input type="email" value={inputs["email"]} id="email" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                  <input placeholder='Email' autocomplete="new-password"  type="email" value={inputs["email"]} id="email" required onChange={(e)=>handleChange(e, e.target.id)}/>
                   </li>
                   <li>
                   <label for="password">Password:</label>
-                  <input type="password" value={inputs["password"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                  <input placeholder='Password'autocomplete="new-password" type="password" value={inputs["password"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
                   </li>
               </ul>
             </Details>
         <Btn onClick={handleSubmit} type="button">login</Btn>
+        {submitted && !error ? <span><CircularProgress/></span> : null}
     </FormLogin>
   )
 }
@@ -73,6 +78,9 @@ const FormLogin = styled.form`
     }
     h1{
       margin: 5px 5px;
+    }
+    span{
+      margin-top: 2rem;
     }
 `
 
@@ -106,6 +114,10 @@ const Details = styled.div`
       font-style: inherit;
     }
   }
+  p{
+    font-size: 14px;
+    color: red;
+  }
 `
 
 const Btn = styled.button`
@@ -120,6 +132,10 @@ const Btn = styled.button`
     cursor: pointer;
   input{
     padding: 10px 10px;
+  }
+  &:active{
+    transform: ease-in-out 0.2ms;
+    transform: scale(0.94);
   }
 `
 

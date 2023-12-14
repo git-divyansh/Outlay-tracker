@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useGlobalContext } from '../../Context/GlobalContext'
-import { InnerLayout } from '../../Styles/Layouts';
 import { rupee } from '../../Utils/Icons';
 import Chart from '../Chart/Chart';
 import History from '../../History/History';
@@ -17,8 +16,8 @@ const Dashboard = () => {
     }, [user])
 
   return (
-    <DashboardStyled>
-        <InnerLayout>
+    <DashboardStyled >
+        <InDivStyled>
             <h1>Dashboard</h1>
             <div className="stats-con">
                 <div className="chart-con">
@@ -67,10 +66,26 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-        </InnerLayout>
+        </InDivStyled>
     </DashboardStyled>
   )
 }
+
+const InDivStyled = styled.div`
+    background-color: #222321;
+    height: auto;
+    width: 100%;
+    padding: 2rem 1.5rem;
+    h1{
+        margin-bottom: 15px;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        
+    }
+    /* border: 2px solid white; */
+    
+`
 
 const DashboardStyled = styled.div`
     .stats-con{
@@ -81,20 +96,24 @@ const DashboardStyled = styled.div`
             grid-column: 1 / 4;
             height: 400px;
             .amount-con{
+                h2{
+                    color : #c8c6c6;
+                }
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 2rem;
-                margin-top: 2rem;
+                padding-top: 2rem;
                 .income, .expense{
-                    grid-column: span 2;
+                    grid-column: span 3;
                 }
                 .income, .expense, .balance{
-                    background: #FCF6F9;
-                    border: 2px solid #FFFFFF;
+                    background: #262725;
+                    /* border: 2px solid #FFFFFF; */
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
                     padding: 1rem;
                     p{
+                        color: #384d70;
                         font-size: 3.5rem;
                         font-weight: 700;
                     }
@@ -107,13 +126,33 @@ const DashboardStyled = styled.div`
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
                     p{
                         color: var(--color-green);
                         opacity: 0.6;
                         font-size: 4.5rem;
                     }
                 }
+                @media screen and (max-width: 1574px){
+                    .income, .expense, .balance{
+                        width: 10rem;
+                        margin: 0px 10px;
+                        padding: 1rem 10px;
+                        h2{
+                            margin-bottom: 10px;
+                            width: 100%;
+                            font-size: 20px;
+                        }
+                        p{
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            @media screen and (max-width: 1574px){
+                display: flex;
+                /* flex-direction: column; */
+                width: 100%;
             }
         }
 
@@ -132,8 +171,9 @@ const DashboardStyled = styled.div`
                 }
             }
             .salary-item{
-                background: #FCF6F9;
-                border: 2px solid #FFFFFF;
+                /* background: #FCF6F9; */
+                background: #262725;
+                /* border: 2px solid #FFFFFF; */
                 box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                 padding: 1rem;
                 border-radius: 20px;
@@ -141,10 +181,16 @@ const DashboardStyled = styled.div`
                 justify-content: space-between;
                 align-items: center;
                 p{
+                    color: #384d70;
                     font-weight: 600;
                     font-size: 1.6rem;
                 }
             }
+        }
+        @media screen and (max-width: 1574px){
+            display: flex;
+            flex-direction: column;
+            width: 100%;
         }
     }
 `;

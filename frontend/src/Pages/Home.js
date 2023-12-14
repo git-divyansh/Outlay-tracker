@@ -47,12 +47,12 @@ const Home = () => {
 
 const AppStyled = styled.div`
     height: 100vh;
-    background-color: #FAF9F6;
+    background-color: #121311;
     position: relative;
     main{
       flex: 1;
       background: rgba(252, 246, 249, 0.78);
-      border: 3px solid #FFFFFF;
+      border: 3px solid #222321;
       backdrop-filter: blur(4.5px);
       border-radius: 32px;
       overflow-x: hidden;

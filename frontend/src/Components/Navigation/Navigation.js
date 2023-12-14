@@ -53,7 +53,8 @@ const Navigation = ({active, setActive}) => {
             <Button 
                 name={'logout'} 
                 icon={logout}    
-                background = {'white'}
+                bg = {"#222321"}
+                color={"white"}
                 onClick={handleClick}
             />        
         </div>
@@ -65,8 +66,9 @@ const NavStyled = styled.div`
     padding: 2rem 1.5rem;
     width: 374px;
     height: 100%;
-    background: rgba(252, 246, 249, 0.78);
-    border: 3px solid #FFFFFF;
+    /* background: rgba(252, 246, 249, 0.78); */
+    background-color: #222321;
+    /* border: 3px solid #FFFFFF; */
     backdrop-filter: blur(4.5px);
     border-radius: 32px;
     display: flex;
@@ -89,10 +91,11 @@ const NavStyled = styled.div`
             box-shadow: 0px 1px 17px rgba(0, 0, 0, 0.06);
         }
         h2{
-            color: rgba(34, 34, 96, .6);
+            /* color: rgba(34, 34, 96, .6); */
+            color: #c8c6c6;
         }
         p{
-            color: rgba(34, 34, 96, .6);
+            color: #c8c6c6;
         }
     }
 
@@ -112,17 +115,24 @@ const NavStyled = styled.div`
             padding-left: 1rem;
             position: relative;
             i{
-                color: rgba(152, 148, 148, 0.6);
+                /* color: rgba(152, 148, 148, 0.6); */
+                color: #5b5858;
                 font-size: 1.4rem;
                 transition: all .4s ease-in-out;
             }
         }
+        /* span{
+            color: ;
+        } */
     }
 
     .active{
-        color: #19194b99 !important;
+        color: #5b5858 !important;
         i{
-            color: #19194b99 !important;
+            color: #c8c6c6 !important;
+        }
+        span{
+            color: #c8c6c6 !important;
         }
         &::before{
             content: "";
@@ -139,7 +149,7 @@ const NavStyled = styled.div`
     .bottom-nav{
         margin-left: 1rem;
         width: 2rem;
-        
+        background-color: #222321;
     }
 `
 

@@ -25,6 +25,9 @@ export const GlobalProvider = ({children}) =>{
     const addIncome = async (income) => {
         // eslint-disable-next-line
         income = {...income, ['userid'] : userId};
+        if(!income['description']){
+            income['description'] = "empty";
+        }
         // eslint-disable-next-line
         const response = await axios.post(`${BASE_URL}add-income`, income, {withCredentials : true})
             .catch((err) =>{
@@ -76,6 +79,9 @@ export const GlobalProvider = ({children}) =>{
         const userid = userId
         // eslint-disable-next-line
         expense = {...expense, ['userid'] : userid};
+        if(!expense['description']){
+            expense['description'] = "empty";
+        }
         // eslint-disable-next-line
         const response = await axios.post(`${BASE_URL}add-expense`, expense, {withCredentials : true})
             .catch((err) =>{
@@ -141,22 +147,33 @@ export const GlobalProvider = ({children}) =>{
     }
 
     const getUser = async (user) =>{
+
+        if(!user["username"])
+            return setError("Enter Username");
+        if(!user["email"])
+            return setError("Enter Email");
+        if(!user["password"])
+            return setError("Enter Pssoword")
+
+        if (user["email"] && user["username"] && user["password"]) {
+            const mail = user["email"];
+            const regMail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+            if (!regMail.test(mail)) 
+                return setError("Invalid mail format");
+        }
+
         try{
             let info = await axios.post(`${BASE_URL}get-user`, user, {withCredentials : true})
             const id = info.data.check._id;
             const name = info.data.check.username;
-            if(id && name){
-                setName(name);
-                setuserId(id);
-                setUser(true);
-                localStorage.setItem("userid", id);
-                localStorage.setItem("username", name);
-            }
-            else    
-                setError("Some error ocurred while logging in.")
+            setName(name);
+            setuserId(id);
+            setUser(true);
+            localStorage.setItem("userid", id);
+            localStorage.setItem("username", name);
         }
         catch(err){
-            setError(err)
+            setError("Some error occured while connecting!")
         }
     }
 

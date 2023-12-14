@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     :root{
-        --primary-color: rgba(0, 0, 0, 0.6);
+        --primary-color: #c8c6c6;
         --primary-color2: 'color: rgba(34, 34, 96, .6)';
         --primary-color3: 'color: rgba(34, 34, 96, .4)';
         --color-green: #42AD00;

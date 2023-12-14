@@ -85,28 +85,79 @@ import {
         }
       ]
     }
-  
+
+    const options = {
+      scales: {
+          y: {
+              beginAtZero: true,
+              ticks: {
+                  color: 'white' // Change Y-axis values color here
+              },
+              grid: {
+                  color: '#717070 ' // Change Y-axis grid lines color here
+              }
+          },
+          x: {
+              beginAtZero: true,
+              ticks: {
+                  color: 'white' // Change x-axis values color here
+              },
+              grid: {
+                  color: '#717070' // Change Y-axis grid lines color here
+              }
+          }
+      }
+          
+  }
+
     return (
-      <BarStyled>
-        <Bar 
-          data={data} 
-        />
-        <Bar 
-          data={data2}
-        />
-      </BarStyled>
+      <>
+        <BarStyled>
+          <Bar 
+            className="chart1"
+            data={data} 
+            options={options}
+            />
+        </BarStyled>
+        <BarStyled>
+          <Bar 
+            className="chart2"
+            data={data2}
+            options={options}
+          />
+        </BarStyled>
+      </>
     );
   };
   
   const BarStyled = styled.div`
-    display: flex;
-    background: #fcf6f9;
-    border: 2px solid #ffffff;
+    display: flex;  
+    flex-direction: column;
+    margin-bottom: 24%;
+    width: fit-content;
+    height: fit-content;
+    background: #3a3b39;
     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
     padding: 1rem;
     border-radius: 20px;
-    height: 18rem;
     justify-content: space-between;
+    .chart1, .chart2{
+      height: 18rem;
+    }
+    @media screen and (max-width: 1574px){
+      margin: 1rem 1rem;
+      .chart1, .chart2{
+        height: 20rem;
+        width: 100%;
+      }
+    }
+    @media screen and (max-width: 1024px){
+      margin: 1rem 1rem;
+      .chart1, .chart2{
+        height: 14rem;
+        width: 100%;
+      }
+    }
   `;
   
   export default Chart2;

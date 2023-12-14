@@ -4,7 +4,13 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../Context/GlobalContext';
 
 const Register = () => {
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({
+      "username" : "",
+      "email" : "",
+      "password" : ""
+    });
+
+    const [para, setPara] = useState("");
 
     const {error, addUser} = useGlobalContext()
     const navigate = useNavigate();
@@ -15,35 +21,37 @@ const Register = () => {
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         addUser(inputs);
         if(!error){
-            navigate('/login');
+            setPara("User is Created proceed to Login")
         }
     }
 
   return (
     <FormLogin onSubmit={handleSubmit}>
         <h1>Sign Up!</h1>
+        {<p>{para}</p>}
             <Details>
             {error ?  <p> {error} </p>: <legend>Create Account</legend>}
                 <ul>
                     <li>
                     <label for="username">Username:</label>
-                    <input type="text" value={inputs["username"]} id="username" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                    <input placeholder='Username' autocomplete="new-password"  type="text" value={inputs["username"]} id="username" required onChange={(e)=>handleChange(e, e.target.id)}/>
                     </li>
                     <li>
-                    <label for="email">Email:</label>
-                    <input type="email" value={inputs["email"]} id="email" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                    <label autoComplete='off' for="email">Email:</label>
+                    <input placeholder='Email' autocomplete="new-password" type="email" value={inputs["email"]} id="email" required onChange={(e)=>handleChange(e, e.target.id)}/>
                     </li>
                     <li>
                     <label for="password">Password:</label>
-                    <input type="password" value={inputs["password"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
+                    <input placeholder='Password'autocomplete="new-password" type="password" value={inputs["password"]} id="password" required onChange={(e)=>handleChange(e, e.target.id)}/>
                     </li>
                 </ul>
             </Details>
         <div>
-            <Btn onClick={handleSubmit}>Submit</Btn>
-            <Btn style={{textDecoration : "none"}} onClick={()=>{navigate('/login')}} type="button">Login</Btn>
+            <Btn onClick={handleSubmit}>Register</Btn>
+            <Btn id = "btn" style={{textDecoration : "none"}} onClick={()=>{navigate('/login')}} type="button">Login</Btn>
         </div>
   </FormLogin>
   )
@@ -111,6 +119,11 @@ const Btn = styled.button`
   input{
     padding: 10px 10px;
   }
+  &:active{
+    transform: ease-in-out 0.2ms;
+    transform: scale(0.94);
+  }
+  
 `
 
 export default Register

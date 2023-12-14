@@ -48,14 +48,16 @@ const Incomes = () => {
 }
 
 const IncomeStyled = styled.div`
+    overflow-x: hidden;
     display: flex;
     overflow: auto;
     .total-income{
+        color: #c8c6c6;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #FCF6F9;
-        border: 2px solid #FFFFFF;
+        background: #262725;
+        /* border: 2px solid #FFFFFF; */
         box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
         border-radius: 20px;
         padding: 1rem;
@@ -74,7 +76,12 @@ const IncomeStyled = styled.div`
         .incomes{
             flex: 1;
         }
+        @media screen and (max-width: 1574px){
+            display: flex;
+            flex-direction: column;
+        }
     }
+
 `;
 
 
