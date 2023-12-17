@@ -1,4 +1,4 @@
-# MindScribe
+# Outlay-tracker
 
 ## To start setting up the project
 Created a wesite for managing expenses with graphical representation of expenditures using chart.js
